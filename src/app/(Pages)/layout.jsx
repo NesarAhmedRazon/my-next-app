@@ -1,8 +1,6 @@
 import "@styles/globals.scss";
 import { Inter, Roboto_Flex } from "next/font/google";
 
-export const runtime = "edge"; // 'nodejs' (default) | 'edge'
-
 const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
 const robotoflex = Roboto_Flex({
   subsets: ["latin"],
