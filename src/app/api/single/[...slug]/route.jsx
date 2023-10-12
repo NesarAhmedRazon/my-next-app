@@ -1,6 +1,7 @@
 import { nodeByUri } from "@queries/single/ByUri";
 import { NextResponse } from "next/server";
 
+export const runtime = "edge";
 export async function GET(request, { params }) {
   const { slug } = params ?? {};
   const node = slug ? slug.join("/") : "/";
