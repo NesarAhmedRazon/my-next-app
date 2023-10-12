@@ -1,5 +1,5 @@
-import { menus } from "@fragments/MenuNodes";
-import { themeOptions } from "@fragments/ThemOptions";
+import { menus } from "@queries/fragments/MenuNodes";
+import { themeOptions } from "@queries/fragments/ThemOptions";
 export const get_blogs = `
 query GetPosts($offset: Int = 10, $size: Int = 10, $after: String = "") {
   posts(where: {offsetPagination: {offset: $offset, size: $size}}

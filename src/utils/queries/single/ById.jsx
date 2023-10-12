@@ -1,6 +1,6 @@
-import { menus } from "@fragments/MenuNodes";
-import { common, seo } from "@fragments/PostNode";
-import { themeOptions } from "@fragments/ThemOptions";
+import { menus } from "@queries/fragments/MenuNodes";
+import { common, seo } from "@queries/fragments/PostNode";
+import { themeOptions } from "@queries/fragments/ThemOptions";
 
 export const nodeById = `
   query SinglePageId($id: ID = "") {
