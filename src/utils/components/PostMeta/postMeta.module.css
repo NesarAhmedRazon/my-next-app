@@ -1,0 +1,64 @@
+.container {
+  @apply text-sm text-gray-600 md:flex border-b py-4 md:py-3 space-y-4 md:space-y-0 justify-between text-center md:text-left;
+}
+.container .columnLeft {
+  @apply flex flex-col justify-end align-bottom;
+}
+.container .columnCenter {
+  @apply flex flex-col justify-center align-bottom;
+}
+.container .author .name, .container .author .category, .container .author .date {
+  @apply font-semibold text-gray-900;
+}
+.container .author .name:not([class*=date]), .container .author .category:not([class*=date]), .container .author .date:not([class*=date]) {
+  @apply hover:text-tfnormal;
+}
+.container .author .name {
+  @apply italic;
+}
+.container .metaData .date {
+  @apply font-semibold text-gray-900;
+}
+.container .metaData .date:not([class*=date]) {
+  @apply hover:text-tfnormal;
+}
+.container .share {
+  @apply space-y-2 md:space-y-2;
+}
+.container .share .social {
+  @apply flex space-x-2 justify-center md:justify-end;
+}
+.container .icon {
+  @apply inline-flex w-7 h-7 bg-slate-200 rounded-full items-center justify-center duration-300;
+}
+.container .icon svg {
+  @apply text-xs;
+}
+.container .icon.tallyfy {
+  @apply w-auto h-8 px-5 font-semibold text-sm bg-tfnormal text-white hover:bg-tfhover;
+}
+.container .icon.facebook {
+  @apply hover:bg-facebook text-facebook hover:text-white;
+}
+.container .icon.twitter {
+  @apply hover:bg-twitter text-twitter hover:text-white;
+}
+.container .icon.linkedin {
+  @apply hover:bg-linkedin text-linkedin hover:text-white;
+}
+
+.withThumb {
+  @apply flex justify-start items-center space-x-4;
+}
+.withThumb .post {
+  @apply mb-14 pb-6 border-b;
+}
+.withThumb .post_Head {
+  @apply flex justify-start items-center space-x-4 mb-3;
+}
+.withThumb .post_Author {
+  @apply bg-white w-10 h-10 duration-300 rounded-full overflow-hidden shadow hover:shadow-sm flex flex-col;
+}
+.withThumb .post_Author:hover {
+  @apply border-b-0;
+}

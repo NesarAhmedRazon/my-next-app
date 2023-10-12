@@ -1,0 +1,9 @@
+.pagination {
+  @apply flex space-x-1 justify-center items-center;
+  & .item {
+    @apply border w-8 h-8 flex justify-center items-center hover:bg-gray-100 border-b border-b-inherit;
+    &.current {
+      @apply bg-tfnormal border-tfnormal hover:border-tfhover hover:bg-tfhover text-white hover:text-white;
+    }
+  }
+}

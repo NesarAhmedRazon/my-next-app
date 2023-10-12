@@ -1,0 +1,358 @@
+$rotations: (0, 1, 2, 3, 6, 12, 45, 90, 180);
+$fweights: (
+  "thin",
+  "extralight",
+  "light",
+  "normal",
+  "medium",
+  "semibold",
+  "bold",
+  "extrabold",
+  "black"
+);
+$sides: ("", "t", "b", "l", "r");
+$steps: (
+  "one": 1,
+  "two": 2,
+  "three": 3,
+  "four": 4,
+  "five": 5,
+  "six": 6
+);
+$fsizes: (
+  "xs": "xs",
+  "1": "xs",
+  "sm": "sm",
+  "2": "sm",
+  "base": "base",
+  "lg": "lg",
+  "xl": "xl",
+  "xlH": "1.5xl",
+  "1hxl": "1.5xl",
+  "xxl": "2xl",
+  "2xl": "2xl",
+  "xxlH": "2.5xl",
+  "2hxl": "2.5xl",
+  "big": "3xl",
+  "3xl": "3xl",
+  "bigH": "3.5xl",
+  "3hxl": "3.5xl",
+  "mega": "4xl",
+  "4xl": "4xl",
+  "megaH": "4.5xl",
+  "4hxl": "4.5xl",
+  "giga": "5xl",
+  "5xl": "5xl",
+  "gigaH": "5.5xl",
+  "5hxl": "5.5xl"
+);
+$displays: (
+  "": "",
+  "sm_": "sm:",
+  "md_": "md:",
+  "lg_": "lg:",
+  "xl_": "xl:",
+  "xxl_": "2xl:"
+);
+$weights: (
+  "exlight": "extralight",
+  "light": "light",
+  "regular": "normal",
+  "semibold": "semibold",
+  "bold": "bold",
+  "exbold": "extrabold",
+  "black": "black"
+);
+$columns: (
+  "one": "1",
+  "two": "2",
+  "three": "3",
+  "four": "4",
+  "five": "5",
+  "six": "6",
+  "seven": "7",
+  "eight": "8",
+  "nine": "9",
+  "ten": "10",
+  "eleven": "11",
+  "twelve": "12"
+);
+$halign: (
+  "left": "left",
+  "center": "center",
+  "right": "right"
+);
+$valign: (
+  "top": "top",
+  "middle": "middle",
+  "bottom": "bottom"
+);
+
+$roundedValues: ("none", "sm", "md", "lg", "xl", "2xl", "3xl", "full");
+$radSide: ("t", "r", "b", "l");
+$radCorner: ("tl", "tr", "bl", "br");
+$leadings: (
+  "none": "none",
+  "tight": "tight",
+  "snug": "snug",
+  "normal": "normal",
+  "relaxed": "relaxed",
+  "loose": "loose"
+);
+$trackings: (
+  "tight": "tighter",
+  "normal": "normal",
+  "wide": "wide",
+  "wider": "wider",
+  "widest": "widest"
+);
+$expands: (
+  "inherit",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "2xl",
+  "3xl",
+  "4xl",
+  "5xl",
+  "6xl",
+  "7xl",
+  "8xl",
+  "9xl",
+  "10xl",
+  "11xl",
+  "12xl",
+  "13xl",
+  "14xl"
+);
+
+@each $break, $point in $displays {
+  .#{$break}min_h_screen {
+    @apply #{$point}min-h-screen;
+  }
+  @each $val in $roundedValues {
+    .#{$break}rounded_#{$val} {
+      @if ($val == md) {
+        @apply #{$point}rounded;
+      } @else {
+        @apply #{$point}rounded-#{$val};
+      }
+    }
+    .#{$break}hover_rounded_#{$val} {
+      @if ($val == md) {
+        @apply hover:#{$point}rounded;
+      } @else {
+        @apply hover:#{$point}rounded-#{$val};
+      }
+    }
+    @each $side in $radSide {
+      .#{$break}rounded_#{$side}_#{$val} {
+        @if ($val == md) {
+          @apply #{$point}rounded-#{$side};
+        } @else {
+          @apply #{$point}rounded-#{$side}-#{$val};
+        }
+      }
+      .#{$break}hover_rounded_#{$side}_#{$val} {
+        @if ($val == md) {
+          @apply hover:#{$point}rounded-#{$side};
+        } @else {
+          @apply hover:#{$point}rounded-#{$side}-#{$val};
+        }
+      }
+    }
+    @each $corner in $radCorner {
+      .#{$break}rounded_#{$corner}_#{$val} {
+        @if ($val == md) {
+          @apply #{$point}rounded-#{$corner};
+        } @else {
+          @apply #{$point}rounded-#{$corner}-#{$val};
+        }
+      }
+      .#{$break}hover_rounded_#{$corner}_#{$val} {
+        @if ($val == md) {
+          @apply hover:#{$point}rounded-#{$corner};
+        } @else {
+          @apply hover:#{$point}rounded-#{$corner}-#{$val};
+        }
+      }
+    }
+  }
+  @each $align, $al in $halign {
+    .#{$break}text_#{$align} {
+      @apply #{$point}text-#{$al};
+    }
+  }
+  @each $column, $cw in $columns {
+    .row {
+      & .columns {
+        &.#{$break}#{$column} {
+          @apply #{$point}col-span-#{$cw};
+        }
+      }
+    }
+  }
+  @each $weight, $fw in $weights {
+    .#{$break}font_#{$weight} {
+      @apply #{$point}font-#{$fw};
+    }
+  }
+  @each $fweight in $fweights {
+    .#{$break}font_#{$fweight} {
+      @apply #{$point}font-#{$fweight};
+    }
+  }
+  @each $fsize, $fs in $fsizes {
+    .#{$break}text_#{$fsize} {
+      @apply #{$point}text-#{$fs};
+    }
+  }
+
+  @each $leading, $ld in $leadings {
+    .#{$break}leading_#{$leading} {
+      @apply #{$point}leading-#{$ld};
+    }
+  }
+  @each $tracking, $tk in $trackings {
+    .#{$break}tracking_#{$tracking} {
+      @apply #{$point}tracking-#{$tk};
+    }
+  }
+
+  // For each expand sizes from create a map and loop through it
+  @each $size in $expands {
+    .#{$break}expand_#{$size} {
+      @apply #{$point}expand-#{$size};
+    }
+  }
+
+  @each $deg in $rotations {
+    .#{$break}rotate_#{$deg} {
+      @apply #{$point}rotate-#{$deg};
+    }
+    .-#{$break}rotate_#{$deg} {
+      @apply #{$point}-rotate-#{$deg};
+    }
+  }
+  @each $side in $sides {
+    .#{$break}m#{$side}_0 {
+      @apply #{$point}m#{$side}-0;
+    }
+    .#{$break}p#{$side}_0 {
+      @apply #{$point}p#{$side}-0;
+    }
+  }
+  @for $size from 1 through 18 {
+    @each $side in $sides {
+      .#{$break}m#{$side}_#{$size} {
+        @apply #{$point}m#{$side}-#{$size};
+      }
+
+      .#{$break}p#{$side}_#{$size} {
+        @apply #{$point}p#{$side}-#{$size};
+      }
+    }
+    .#{$break}mx_#{$size} {
+      @apply #{$point}mx-#{$size};
+    }
+    .#{$break}my_#{$size} {
+      @apply #{$point}my-#{$size};
+    }
+    .#{$break}px_#{$size} {
+      @apply #{$point}px-#{$size};
+    }
+    .#{$break}py_#{$size} {
+      @apply #{$point}py-#{$size};
+    }
+  }
+  .#{$break}mx_auto {
+    @apply #{$point}mx-auto;
+  }
+  .#{$break}my_auto {
+    @apply #{$point}my-auto;
+  }
+}
+$colors: (
+  "tfnormal",
+  "tfhover",
+  "oRnormal",
+  "oRhover",
+  "tfBlack",
+  "twitter",
+  "facebook",
+  "linkedin",
+  "homeIco",
+  "DeepPeach",
+  "LandSubText",
+  "pageBg",
+  "body",
+  "th",
+  "tr",
+  "td",
+  "code",
+  "h3",
+  "lead",
+  "grayBox",
+  "white",
+  "black"
+);
+
+$twColors: (
+  "red",
+  "slate",
+  "blue",
+  "green",
+  "yellow",
+  "indigo",
+  "purple",
+  "pink",
+  "gray",
+  "lime"
+);
+
+@each $color in $colors {
+  .text_#{$color} {
+    @apply text-#{$color};
+  }
+  .hover_text_#{$color} {
+    @apply hover:text-#{$color};
+  }
+  .bg_#{$color} {
+    @apply bg-#{$color};
+  }
+  .hover_bg_#{$color}:hover {
+    @apply hover:bg-#{$color};
+  }
+}
+
+//Tailwindcss Colors for WP
+@each $color in $twColors {
+  @for $i from 0 through 9 {
+    $ni: $i * 100;
+    @if $ni == 0 {
+      $ni: 50;
+    }
+    .text_#{$color}_#{$ni} {
+      @apply text-#{$color}-#{$ni};
+    }
+    .hover_text_#{$color}_#{$ni} {
+      @apply hover:text-#{$color}-#{$ni};
+    }
+    .bg_#{$color}_#{$ni} {
+      @apply bg-#{$color}-#{$ni};
+    }
+    .hover_bg_#{$color}_#{$ni} {
+      @apply hover:bg-#{$color}-#{$ni};
+    }
+  }
+}
+
+.steps {
+  @each $step, $size in $steps {
+    &.#{$step}-steps {
+      @apply md:grid-cols-#{$size};
+    }
+  }
+}

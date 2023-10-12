@@ -1,0 +1,74 @@
+.container {
+  @apply text-sm text-gray-600 md:flex border-b py-4 md:py-3 space-y-4 md:space-y-0 justify-between text-center md:text-left;
+  & .column {
+    &Left {
+      @apply flex flex-col justify-end align-bottom;
+    }
+    &Center {
+      @apply flex flex-col justify-center align-bottom;
+    }
+    &Right {
+    }
+  }
+  & .author {
+    & .name,
+    & .category,
+    & .date {
+      @apply font-semibold text-gray-900;
+      &:not([class*="date"]) {
+        @apply hover:text-tfnormal;
+      }
+    }
+    & .name {
+      @apply italic;
+    }
+  }
+  & .metaData {
+    & .date {
+      @apply font-semibold text-gray-900;
+      &:not([class*="date"]) {
+        @apply hover:text-tfnormal;
+      }
+    }
+  }
+  & .share {
+    @apply space-y-2 md:space-y-2;
+    & .social {
+      @apply flex space-x-2 justify-center md:justify-end;
+    }
+  }
+  & .icon {
+    @apply inline-flex w-7 h-7 bg-slate-200 rounded-full items-center justify-center duration-300;
+    & svg {
+      @apply text-xs;
+    }
+    &.tallyfy {
+      @apply w-auto h-8 px-5 font-semibold text-sm bg-tfnormal text-white hover:bg-tfhover;
+    }
+    &.facebook {
+      @apply hover:bg-facebook text-facebook hover:text-white;
+    }
+    &.twitter {
+      @apply hover:bg-twitter text-twitter hover:text-white;
+    }
+    &.linkedin {
+      @apply hover:bg-linkedin text-linkedin hover:text-white;
+    }
+  }
+}
+.withThumb {
+  @apply flex justify-start items-center space-x-4;
+  & .post {
+    @apply mb-14 pb-6 border-b;
+    &_Head {
+      @apply flex justify-start items-center space-x-4 mb-3;
+    }
+    &_Author {
+      @apply bg-white w-10 h-10 duration-300 rounded-full overflow-hidden shadow hover:shadow-sm flex flex-col;
+
+      &:hover {
+        @apply border-b-0;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.archive {
+  @apply mt-18;
+  & .post {
+    @apply mb-14 pb-6 border-b;
+    &_Head {
+      @apply flex justify-start items-center space-x-4 mb-3;
+    }
+    &_Author {
+      @apply bg-white w-10 h-10 duration-300 rounded-full overflow-hidden shadow hover:shadow-sm flex flex-col;
+
+      &:hover {
+        @apply border-b-0;
+      }
+    }
+    &_Terms {
+      @apply space-x-2;
+      &_Item {
+        @apply text-tfnormal text-[13px] hover:text-tfhover border-b-2 border-b-transparent hover:border-b-tfhover duration-300;
+      }
+    }
+    &_Title {
+      @apply line-clamp-2 font-semibold mt-0 text-tfnormal hover:text-tfhover border-b-2 border-b-transparent hover:border-b-tfhover duration-300 text-xl lg:text-1.5xl tracking-wide;
+    }
+    &_Exap {
+      @apply mt-3;
+    }
+    & .arkfooter {
+      @apply flex justify-start items-center mt-4;
+      & .readMore {
+        @apply font-semibold tracking-wide duration-300 px-6 py-2 text-white bg-tfnormal hover:bg-tfhover rounded-full text-sm border-b-0;
+      }
+    }
+  }
+  &.grid {
+    &Layout {
+      @apply md:grid grid-cols-2 border-b border-dashed mt-0;
+      & .slim {
+        //TODO: need to do this
+      }
+      & .post {
+        @apply mb-0 md:px-6 lg:px-[40px] py-10  border-dashed border-b-0 border-t;
+        &:nth-child(even) {
+          @apply lg:border-l;
+        }
+
+        &_Videolink {
+          @apply grid lg:grid grid-cols-1 md:grid-cols-3;
+          & .content {
+            @apply col-span-1 md:col-span-2 md:pr-4 order-2 md:order-none grid grid-cols-1 justify-items-center md:block;
+          }
+          & .thumbnail {
+            @apply order-1 md:order-none col-span-1 h-40 md:h-36 md:col-span-1 mb-4 md:mb-0 flex justify-center items-center overflow-hidden border bg-cover bg-center rounded-lg;
+            &:hover {
+              @apply border-inherit;
+              & .playIcon {
+                @apply bg-black/70 scale-110;
+              }
+            }
+            & .playIcon {
+              @apply grid justify-center items-center bg-black/50 text-2xl w-14 h-14 rounded-full text-white duration-300;
+              &:before {
+                @apply ml-1 leading-none self-center;
+              }
+            }
+          }
+        }
+        &_page {
+          @apply bg-white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  @apply pb-8 md:pb-0 xl:pb-4 text-center;
+
+  & .text {
+    @apply text-lg md:text-1.5xl leading-relaxed py-4 mb-0;
+  }
+  & .btnContainer {
+    @apply md:space-x-4 space-y-5 md:space-y-0;
+    & a {
+      @apply w-11/12 md:w-auto py-4;
+    }
+  }
+  & .ctaTitle {
+    @apply leading-[1.2em] text-[32.2px] md:text-[54.5px] mt-[10px] mb-[15px] pl-[40px] pr-[40px] -tracking-[0.8px] font-bold text-[#505b6a] text-center;
+  }
+  & .ctaImage {
+    @apply my-6;
+  }
+}
+
+//case study  section css
