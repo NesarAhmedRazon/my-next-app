@@ -6,7 +6,7 @@ import Header from "@components/Header";
 import { FetchAll } from "@queries/archive/FetchAll";
 import { FetchSingle } from "@queries/single/FetchSingle";
 import { GlobalStyle } from "@tools/ThemeOptions";
-export const runtime = "edge";
+
 export async function generateStaticParams() {
   const pages = await FetchAll("pages", 2);
   const posts = await FetchAll("posts", 2);
